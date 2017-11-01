@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>电商用户管理</title>
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="css/common.css">
 
 </head>
@@ -15,7 +16,7 @@
     </div>
     <div class="pic">
         <img src="images/01.jpg" alt="">
-        <p>超级管理员</p>
+        <p>隔壁老王</p>
     </div>
     <div class="nav">
         <ul>
@@ -31,13 +32,12 @@
                     <span class="glyphicon glyphicon-list"></span>
                     分类管理
                 </a>
-                <div class="child">
+                <div class="child" style="display: none;">
                     <a href="first.html">一级分类</a>
                     <a href="second.html">二级分类</a>
                 </div>
             </li>
             <li>
-
                 <a href="product.html">
                     <span class="glyphicon glyphicon-tags"></span>
                     商品管理
@@ -59,15 +59,87 @@
             <li class="active">用户管理</li>
         </ol>
     </div>
+    <div class="lt_box">
+        <table class="table table-bordered table-hover" style="text-align: center">
+            <thead>
+            <tr>
+                <td width="10%">序号</td>
+                <td width="30%">用户名</td>
+                <td width="30%">手机号</td>
+                <td width="20%">状态</td>
+                <td width="10%">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="text-right">
+            <ul id="paginator"></ul>
+        </div>
+    </div>
 </div>
 
+<div class="modal fade" tabindex="-1" id="logoutModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger"><span class="glyphicon glyphicon-info-sign"></span> 您确定要退出后台管理系统吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn_logout btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" id="userModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger"><span class="glyphicon glyphicon-info-sign"></span> 您确定要执行此操作吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn_confirm btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/html" id="tpl">
+    {{each rows v i}}
+    <tr>
+        <td>{{(page-1)*size+i+1}}</td>
+        <td>{{v.username}}</td>
+        <td>{{v.mobile}}</td>
+        <td>{{v.isDelete===1?"正常":"禁用"}}</td>
+        <td data-id="{{v.id}}" data-is-delete="{{v.isDelete}}">
+            {{if v.isDelete===1}}
+            <button class="btn btn-sm btn-danger">禁用</button>
+            {{/if}}
+            {{if v.isDelete===0}}
+            <button class="btn btn-sm btn-success">启用</button>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+</script>
 
 
 
-
-
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
 <script src="js/user.js"></script>

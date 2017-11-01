@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>一级分类</title>
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="css/common.css">
 
 </head>
@@ -15,7 +16,7 @@
     </div>
     <div class="pic">
         <img src="images/01.jpg" alt="">
-        <p>超级管理员</p>
+        <p>隔壁老王</p>
     </div>
     <div class="nav">
         <ul>
@@ -60,15 +61,83 @@
             <li class="active">一级管理</li>
         </ol>
     </div>
+    <div class="lt_box">
+        <button class="btn_add btn btn-default mb20">添加分类</button>
+        <table class="table table-bordered table-hover" style="text-align: center">
 
-
+            <thead>
+            <tr>
+                <td width="20%">序号</td>
+                <td width="80%">分类名称</td>
+            </tr>
+            </thead>
+            <tbody>
+            <!--挖个坑-->
+            </tbody>
+        </table>
+        <div class="text-right">
+            <ul id="paginator"></ul>
+        </div>
+    </div>
 </div>
+<div class="modal fade" tabindex="-1" id="logoutModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger"><span class="glyphicon glyphicon-info-sign"></span> 您确定要退出后台管理系统吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn_logout btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">添加一级分类</h4>
+            </div>
+            <div class="modal-body">
 
+                <form id="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="请输入一级分类">
+                    </div>
+                </form>
 
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/echarts/echarts.min.js"></script>
+            </div>
+            <div class="modal-footer">
+                <button type="button" form="form" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" form="form" class="btn_confirm btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="tpl">
+    {{each rows v i}}
+  <tr>
+      <td>{{(page-1)*size+i+1}}</td>
+      <td>{{v.categoryName}}</td>
+  </tr>
+    {{/each}}
+</script>
+
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/first.js"></script>
 
 </body>
 </html>

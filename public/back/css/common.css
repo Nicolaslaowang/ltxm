@@ -12,6 +12,9 @@ a:link, a:visited, a:hover, a:active {
 .mt150 {
     margin-top: 150px;
 }
+.mb20{
+    margin-bottom: 20px;
+}
 
 .lt_panel h4 {
     text-align: center;
@@ -28,6 +31,10 @@ a:link, a:visited, a:hover, a:active {
     top: 0;
     left: 0;
     background-color: #222d32;
+    transition: all 1s;
+}
+.lt_aside.now{
+    left: -180px;
 }
 
 .lt_aside .brand a {
@@ -39,6 +46,7 @@ a:link, a:visited, a:hover, a:active {
     color: #fff;
     background-color: #337ab7;
 }
+
 
 .lt_aside .nav a.now {
     background-color: #1d1f21;
@@ -83,7 +91,12 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .lt_content {
+
     padding-left: 180px;
+    transition: all 1s;
+}
+.lt_content.now {
+    padding-left: 0;
 }
 
 .lt_header {
@@ -97,7 +110,9 @@ a:link, a:visited, a:hover, a:active {
     color: #fff;
     font-size: 16px;
 }
-
+.lt_box{
+    padding: 0 20px;
+}
 .lt_main .pic_left,
 .lt_main .pic_right {
     padding-left: 50px;
